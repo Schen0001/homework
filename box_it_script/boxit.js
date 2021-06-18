@@ -1,5 +1,5 @@
 /* 
-I had a ton of help from one of the TAs and although the way done is different from the instructions, 
+I had a ton of help from one of the TAs (Ondrej) and although the way done is different from the instructions, 
 the desired results are still the same!
 */
 
@@ -54,7 +54,7 @@ function boxIt(namesInArray) {
 
         // Now for the console log names or whatever we want to show including the rightSpace.
         result.push(`|${namesInArray[i]}${rightSpace}|`);
-        // Here, TA explained to me that "- 1" is needed here so that the middleBorder does not repeat down on to the last row.
+        // Here, Ondrej explained to me that "- 1" is needed here so that the middleBorder does not repeat down on to the last row.
         if (i < namesInArray.length - 1) {
         // Basically showed everything perfect except theres an extra empty row space without the "- 1".
             result.push(createBorders(longestNameLength, "middleBorder"));
