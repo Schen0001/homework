@@ -1,0 +1,64 @@
+body {
+    width: 75%;
+    margin: auto;
+    border: 5px solid grey;
+    background-color: rgb(241, 217, 163);
+    min-height: 100vh;
+}
+
+html {
+    background-color: darksalmon;
+}
+
+.secret-word h1 {
+    display: none;
+    padding: 10px;
+}
+
+.secret-other-word {
+    display: none;
+    padding: 10px;
+}
+
+.secret-word {
+    display: flex;
+}
+
+.letters-and-image {
+    display: flex;
+    justify-content: space-around;
+}
+
+.letter-buttons button {
+    padding: 10px;
+    margin: 5px;
+}
+
+.letter-buttons {
+    border: 5px solid rgb(124, 68, 42);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.image-hangman {
+    border: 5px solid rgb(124, 68, 42);
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.you-lose-h3 {
+    display: none;
+    margin-left: 90px;
+}
+
+.you-win-h3 {
+    display: none;
+}
+
+.letters-button-middle {
+    margin-left: 25px;
+}
+
+.letters-button-bottom {
+    margin-left: 50px;
+}

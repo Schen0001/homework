@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <audio src="/sounds/correct-sound.mp3" id="correct-sound"></audio>
+    <audio src="/sounds/wrong-sound.mp3" id="wrong-sound"></audio>
+    <audio src="/sounds/gameover-sound.mp3" id="gameover-sound"></audio>
+    <audio src="/sounds/win-sound.mp3" id="win-sound"></audio>
+
+    <title>Hangman!</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Welcome to Hangman!</h1>
+    <hr>
+
+    <div class="letters-and-image">
+    <section class="letter-buttons">
+        <h3>Click your guesses here:</h3>
+        <hr>
+        <div class="letters-button-top">
+            <button class="btn btn-danger" id="q">Q</button>
+            <button class="btn btn-danger" id="w">W</button>
+            <button class="btn btn-danger" id="e">E</button>
+            <button class="btn btn-danger" id="r">R</button>
+            <button class="btn btn-danger" id="t">T</button>
+            <button class="btn btn-danger" id="y">Y</button>
+            <button class="btn btn-danger" id="u">U</button>
+            <button class="btn btn-danger" id="i">I</button>
+            <button class="btn btn-danger" id="o">O</button>
+            <button class="btn btn-danger" id="p">P</button>
+        </div>
+        <div class="letters-button-middle">
+            <button class="btn btn-danger" id="a">A</button>
+            <button class="btn btn-danger" id="s">S</button>
+            <button class="btn btn-danger" id="d">D</button>
+            <button class="btn btn-danger" id="f">F</button>
+            <button class="btn btn-danger" id="g">G</button>
+            <button class="btn btn-danger" id="h">H</button>
+            <button class="btn btn-danger" id="j">J</button>
+            <button class="btn btn-danger" id="k">K</button>
+            <button class="btn btn-danger" id="l">L</button>
+        </div>
+        <div class="letters-button-bottom">
+            <button class="btn btn-danger" id="z">Z</button>
+            <button class="btn btn-danger" id="x">X</button>
+            <button class="btn btn-danger" id="c">C</button>
+            <button class="btn btn-danger" id="v">V</button>
+            <button class="btn btn-danger" id="b">B</button>
+            <button class="btn btn-danger" id="n">N</button>
+            <button class="btn btn-danger" id="m">M</button>
+        </div>
+        <hr>
+    </section>
+
+    <section>
+        <h3 class="you-win-h3" id="you-win">You <span style="color: red;">Win</span>! No prize though >:)</h3>
+        <h3 class="you-lose-h3" id="you-lose">You <span style="color: red;">lose</span>!</h3>
+        <img class="image-hangman" width="300px" height="300px" src="./images/gallows.jpg" alt="hangman">
+    </section>
+</div>
+<hr>
+
+    <section class="secret-word">
+        <h1 id="cc">C</h1>
+        <h1 id="oo">O</h1>
+        <h1 id="uu">U</h1>
+        <h1 id="nn">N</h1>
+        <h1 id="tt">T</h1>
+        <h1 id="rr">R</h1>
+        <h1 id="yy">Y</h1>
+        <h1 class="secret-other-word" id="road"><span style="color: red;">ROADDDDDDD</span>, TAKE ME HOMEEE</h1>
+    </section>
+
+    <script>
+        let countLoss = 0;
+        let countWin = 0;
+        const correctSound = document.getElementById('correct-sound')
+        const wrongSound = document.getElementById('wrong-sound')
+        const gameOver = document.getElementById('gameover-sound')
+        const winSound = document.getElementById('win-sound')
+
+        $(document).ready(function() {     
+         $('button').click(function() {
+        if ($(this).data('clicked')) {
+            alert('You already clicked this, cmon man/woman')
+        } else if ($(this).data('clicked', false)) {
+            $(this).css('background', 'orange');
+            $(this).data('clicked', true);
+
+            if (this.id == 'c') {
+                countWin++;
+                $('#cc').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else if (this.id == 'o') {
+                countWin++;
+                $('#oo').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else if (this.id == 'u') {
+                countWin++;
+                $('#uu').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else if (this.id == 'n') {
+                countWin++;
+                $('#nn').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else if (this.id == 't') {
+                countWin++;
+                $('#tt').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else if (this.id == 'r') {
+                countWin++;
+                $('#rr').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else if (this.id == 'y') {
+                countWin++;
+                $('#yy').show();
+                    if (countWin === 7) {
+                        $('#road').show();
+                        winSound.play();
+                        $('img').attr('src', '/images/noice-meme.jpg');
+                        $('#you-win').show();
+                        alert('Congrats you won!');
+                    } else {
+                        correctSound.play();
+                    }
+            } else {
+            countLoss++;
+
+            if (countLoss === 1) {
+                countLoss++;
+                $(wrongSound.play());
+                $('img').attr('src', '/images/gallows+head.jpg');
+                console.log(count);
+            } else if (countLoss === 2) {
+                $(wrongSound.play());
+                $('img').attr('src', './images/gallows+head+torso.jpg');
+                console.log(count);
+            } else if (countLoss === 3) {
+                $(wrongSound.play());
+                $('img').attr('src', './images/gallows+head+torso+leg.jpg');
+                console.log(count);
+            } else if (countLoss === 4) {
+                $(wrongSound.play());
+                $('img').attr('src', './images/gallows+head+torso+2leg.jpg');
+                console.log(count);
+            } else if (countLoss === 5) {
+                $(wrongSound.play());
+                $('img').attr('src', './images/gallows+head+torso+2leg+arm.jpg');
+                console.log(count);
+            } else if (countLoss === 6) {
+                $('img').attr('src', './images/tom-meme.jpg');
+                $('#you-lose').show();
+                $(gameOver.play());
+                alert('You lose! Smh cmon 😭');
+                console.log(count);
+            } else {
+                alert('You lose! Smh cmon 😭');
+            } 
+        }   
+        }
+    })
+})
+    </script>
+</body>
+</html>
